@@ -17,10 +17,10 @@ public class USStreetsApi : ISmartyApi
         _logger = logger;
     }
 
-    public Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup)
+    private Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup)
         => _usStreetsClient.GetCandidatesAsync(lookup);
 
-    public Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync(Batch batch)
+    private Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync(Batch batch)
         => _usStreetsClient.GetCandidatesBatchAsync(batch);
 
     public async Task RunAsync()

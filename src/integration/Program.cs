@@ -11,19 +11,19 @@ Log.Logger = new LoggerConfiguration()
                 .CreateLogger();
 
 IHost host = Host.CreateDefaultBuilder(args)
-                .ConfigureServices(services => {
+                .ConfigureServices((services) => {
                     services.AddTransient<ISmartyApi, USStreetsApi>();
                     services.AddTransient<ISmartyApi, USZipCodeApi>();
-
-                    const string authId = "f7b6ef9b-8a3f-4f23-956d-788d714162c3";
-                    const string authToken = "YagchQwvTGhELfjdvXyz";
+                    services.AddTransient<ISmartyApi, USReverseGeoApi>();
 
                     services.AddTransient<HttpClientDiagnosticsHandler>();
                     services.AddTransient((serviceProvider) => {
+                        var t = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID");
+                        var q = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN");
                         return new AuthParamsHandler(serviceProvider.GetRequiredService<ILogger<AuthParamsHandler>>())
                         {
-                            AuthId = authId,
-                            AuthToken = authToken
+                            AuthId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID"),
+                            AuthToken = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN")
                         };
                     });
 
@@ -33,6 +33,10 @@ IHost host = Host.CreateDefaultBuilder(args)
                     
                     services.AddHttpClient("ZipCodeApi", options => {
                         options.BaseAddress = new Uri("https://us-zipcode.api.smartystreets.com");
+                    });
+
+                    services.AddHttpClient("ReverseGeoApi", options => {
+                        options.BaseAddress = new Uri("https://us-reverse-geo.api.smarty.com");
                     });
 
                     services.ConfigureAll<HttpClientFactoryOptions>(options =>
@@ -51,7 +55,14 @@ var apis = host.Services.GetRequiredService<IEnumerable<ISmartyApi>>();
 
 foreach (var api in apis)
 {
-    await api.RunAsync();
+    try
+    {
+        await api.RunAsync();
+    }
+    catch (System.Exception ex)
+    {
+        Log.Logger.Error("ERROR: {ex}", ex);
+    }
 }
 
 await host.RunAsync();

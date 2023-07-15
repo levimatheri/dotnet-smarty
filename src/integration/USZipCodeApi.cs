@@ -19,7 +19,7 @@ public class USZipCodeApi : ISmartyApi
     }
 
 
-    public Task<IReadOnlyList<Result>> GetResultsAsync(Lookup lookup)
+    private  Task<IReadOnlyList<Result>> GetResultsAsync(Lookup lookup)
         => _usZipCodeClient.GetResultsAsync(lookup);
 
     public async Task RunAsync()

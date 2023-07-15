@@ -7,5 +7,5 @@ namespace Smarty.Net.Core.USReverseGeoApi;
 public interface IUSReverseGeoClient
 {
     [Get("/lookup")]
-    Task<SmartyResponse> GetCandidatesAsync(Lookup lookup);
+    Task<SmartyResponse> LookupAsync(Lookup lookup);
 }
