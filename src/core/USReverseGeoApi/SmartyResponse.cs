@@ -3,15 +3,12 @@
 namespace Smarty.Net.Core.USReverseGeoApi
 {
 	using System.Runtime.Serialization;
+    using System.Text.Json.Serialization;
 
-	[DataContract]
+    [DataContract]
 	public class SmartyResponse
 	{
-		#region [ Fields ]
-		
-		[DataMember(Name = "results")]
+		[JsonPropertyName("results")]
 		public List<Result> Results { get; set; }
-
-		#endregion
 	}
 }

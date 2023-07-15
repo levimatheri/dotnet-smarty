@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartyStreets.USReverseGeoApi
+namespace Smarty.Net.Core.USReverseGeoApi
 {
 	using System.Collections.Generic;
 

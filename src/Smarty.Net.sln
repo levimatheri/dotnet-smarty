@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core", "core\core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{51D13F2A-B065-489E-9352-2ED2C73DF854}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{D2C11379-9293-4288-9859-A7F6A373BBB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration", "integration\integration.csproj", "{D2C11379-9293-4288-9859-A7F6A373BBB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

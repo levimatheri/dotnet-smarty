@@ -1,27 +1,31 @@
-﻿using System.Net.Http;
-using Serilog;
+﻿using Microsoft.Extensions.Logging;
 
-namespace TestApp;
+namespace integration;
 
 
 public class AuthParamsHandler : DelegatingHandler
 {
-    private readonly Serilog.ILogger _logger;
+    private readonly ILogger<AuthParamsHandler> _logger;
 
-    public string AuthId { get; set; }
-    public string AuthToken { get; set; }
+    public string? AuthId { get; set; }
+    public string? AuthToken { get; set; }
 
-    public AuthParamsHandler(ILogger logger)
+    public AuthParamsHandler(ILogger<AuthParamsHandler> logger)
     {
         _logger = logger;
-        InnerHandler = new HttpClientHandler();
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
         if (request.RequestUri is null)
         {
-            _logger.Warning("Request uri is null");
+            _logger.LogWarning("Request uri is null");
+            return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        if (AuthId is null || AuthToken is null)
+        {
+            _logger.LogWarning("Auth Id or Token is null");
             return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }
 
@@ -36,7 +40,7 @@ public class AuthParamsHandler : DelegatingHandler
                 var paramVals = paramPart.Split('=');
                 if (paramVals.Length == 0)
                 {
-                    _logger.Error("Request params not well-formed. Request: {requestUri}", request.RequestUri);
+                    _logger.LogError("Request params not well-formed. Request: {requestUri}", request.RequestUri);
                     return await base.SendAsync(request, cancellationToken);
                 }
 

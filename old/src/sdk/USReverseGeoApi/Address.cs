@@ -1,4 +1,4 @@
-﻿namespace SmartyStreets.USReverseGeoApi
+﻿namespace Smarty.Net.Core.USReverseGeoApi
 {
 	using System.Runtime.Serialization;
 
