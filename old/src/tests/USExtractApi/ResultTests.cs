@@ -1,4 +1,4 @@
-﻿namespace SmartyStreets.USExtractApi
+﻿namespace Smarty.Net.Core.USExtractApi;
 {
 	using System.IO;
 	using System.Text;

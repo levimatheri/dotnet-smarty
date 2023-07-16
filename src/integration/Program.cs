@@ -12,14 +12,13 @@ Log.Logger = new LoggerConfiguration()
 
 IHost host = Host.CreateDefaultBuilder(args)
                 .ConfigureServices((services) => {
-                    services.AddTransient<ISmartyApi, USStreetsApi>();
-                    services.AddTransient<ISmartyApi, USZipCodeApi>();
-                    services.AddTransient<ISmartyApi, USReverseGeoApi>();
+                    // services.AddTransient<ISmartyApi, USStreetsApi>();
+                    // services.AddTransient<ISmartyApi, USZipCodeApi>();
+                    // services.AddTransient<ISmartyApi, USReverseGeoApi>();
+                    services.AddTransient<ISmartyApi, USExtractApi>();
 
                     services.AddTransient<HttpClientDiagnosticsHandler>();
                     services.AddTransient((serviceProvider) => {
-                        var t = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID");
-                        var q = Environment.GetEnvironmentVariable("SMARTY_AUTH_TOKEN");
                         return new AuthParamsHandler(serviceProvider.GetRequiredService<ILogger<AuthParamsHandler>>())
                         {
                             AuthId = Environment.GetEnvironmentVariable("SMARTY_AUTH_ID"),
@@ -37,6 +36,10 @@ IHost host = Host.CreateDefaultBuilder(args)
 
                     services.AddHttpClient("ReverseGeoApi", options => {
                         options.BaseAddress = new Uri("https://us-reverse-geo.api.smarty.com");
+                    });
+
+                    services.AddHttpClient("ExtractApi", options => {
+                        options.BaseAddress = new Uri("https://us-extract.api.smarty.com");
                     });
 
                     services.ConfigureAll<HttpClientFactoryOptions>(options =>

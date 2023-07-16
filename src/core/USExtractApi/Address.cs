@@ -1,34 +1,31 @@
-﻿namespace Smarty.Net.Core.USExtractApi;
-{
-	using System.Runtime.Serialization;
-	using USStreetApi;
+﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+using Smarty.Net.Core.USStreetApi;
 
+namespace Smarty.Net.Core.USExtractApi
+{
+	
 	/// <summary>
 	///     See "https://smartystreets.com/docs/cloud/us-extract-api#http-response-status"
 	/// </summary>
-	[DataContract]
 	public class Address
 	{
-		#region [ Fields ]
-
-		[DataMember(Name = "text")]
+		[JsonPropertyName("text")]
 		public string Text { get; set; }
 
-		[DataMember(Name = "verified")]
+		[JsonPropertyName("verified")]
 		public bool Verified { get; set; }
 
-		[DataMember(Name = "line")]
+		[JsonPropertyName("line")]
 		public int Line { get; set; }
 
-		[DataMember(Name = "start")]
+		[JsonPropertyName("start")]
 		public int Start { get; set; }
 
-		[DataMember(Name = "end")]
+		[JsonPropertyName("end")]
 		public int End { get; set; }
 
-		[DataMember(Name = "api_output")]
+		[JsonPropertyName("api_output")]
 		public Candidate[] Candidates { get; set; }
-
-		#endregion
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace SmartyStreets.USExtractApi
+﻿namespace Smarty.Net.Core.USExtractApi;
 {
 	/// <summary>
 	///     In addition to holding all of the input data for this lookup, this class also
