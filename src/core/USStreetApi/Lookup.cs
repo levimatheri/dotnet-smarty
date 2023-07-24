@@ -40,7 +40,7 @@ public class Lookup : ILookup
     public int MaxCandidates { get; set; } = 1;
 
     [AliasAs("match")]
-    public MatchStrategy Match { get; set; } = MatchStrategy.Strict;
+    public MatchStrategy? Match { get; set; } = MatchStrategy.Strict;
 
     public enum MatchStrategy
     {

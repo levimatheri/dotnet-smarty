@@ -23,7 +23,7 @@ namespace Smarty.Net.Core.USExtractApi
 		public bool? IsHtml { get; set; }
 		
 		[AliasAs("match")]
-		public MatchStrategy Match { get; set; } = MatchStrategy.Strict;
+		public MatchStrategy? Match { get; set; } = MatchStrategy.Strict;
 
 		public enum MatchStrategy
 		{

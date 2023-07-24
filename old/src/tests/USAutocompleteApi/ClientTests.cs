@@ -1,4 +1,4 @@
-﻿namespace SmartyStreets.USAutocompleteApi
+﻿namespace Smarty.Net.Core.USAutocompleteApi
 {
 	using System;
 	using System.Text;

@@ -1,4 +1,4 @@
-﻿namespace SmartyStreets.USAutocompleteApi
+﻿namespace Smarty.Net.Core.USAutocompleteApi
 {
 	/// <summary>
 	///     This class corresponds to the geolocate and geolocate_precision fields in the US Autocomplete API

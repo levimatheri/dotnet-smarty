@@ -15,7 +15,8 @@ IHost host = Host.CreateDefaultBuilder(args)
                     // services.AddTransient<ISmartyApi, USStreetsApi>();
                     // services.AddTransient<ISmartyApi, USZipCodeApi>();
                     // services.AddTransient<ISmartyApi, USReverseGeoApi>();
-                    services.AddTransient<ISmartyApi, USExtractApi>();
+                    //services.AddTransient<ISmartyApi, USExtractApi>();
+                    services.AddTransient<ISmartyApi, USAutocompleteProApi>();
 
                     services.AddTransient<HttpClientDiagnosticsHandler>();
                     services.AddTransient((serviceProvider) => {
@@ -40,6 +41,10 @@ IHost host = Host.CreateDefaultBuilder(args)
 
                     services.AddHttpClient("ExtractApi", options => {
                         options.BaseAddress = new Uri("https://us-extract.api.smarty.com");
+                    });
+
+                    services.AddHttpClient("AutocompleteProApi", options => {
+                        options.BaseAddress = new Uri("https://us-autocomplete-pro.api.smarty.com");
                     });
 
                     services.ConfigureAll<HttpClientFactoryOptions>(options =>
