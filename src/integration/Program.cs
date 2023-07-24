@@ -12,10 +12,10 @@ Log.Logger = new LoggerConfiguration()
 
 IHost host = Host.CreateDefaultBuilder(args)
                 .ConfigureServices((services) => {
-                    // services.AddTransient<ISmartyApi, USStreetsApi>();
-                    // services.AddTransient<ISmartyApi, USZipCodeApi>();
-                    // services.AddTransient<ISmartyApi, USReverseGeoApi>();
-                    //services.AddTransient<ISmartyApi, USExtractApi>();
+                    services.AddTransient<ISmartyApi, USStreetsApi>();
+                    services.AddTransient<ISmartyApi, USZipCodeApi>();
+                    services.AddTransient<ISmartyApi, USReverseGeoApi>();
+                    services.AddTransient<ISmartyApi, USExtractApi>();
                     services.AddTransient<ISmartyApi, USAutocompleteProApi>();
 
                     services.AddTransient<HttpClientDiagnosticsHandler>();
