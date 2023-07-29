@@ -8,9 +8,9 @@ namespace Smarty.Net.Core.USExtractApi;
 /// </summary>
 public class Result
 {
-	[JsonPropertyName("meta")]
-	public Metadata Metadata { get; set; }
+    [JsonPropertyName("meta")]
+    public Metadata Metadata { get; set; }
 
-	[JsonPropertyName("addresses")]
-	public Address[] Addresses { get; set; }
+    [JsonPropertyName("addresses")]
+    public Address[] Addresses { get; set; }
 }

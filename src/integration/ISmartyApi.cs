@@ -2,5 +2,5 @@
 
 public interface ISmartyApi
 {
-    Task RunAsync();
+    Task RunAsync(CancellationToken cancellationToken = default);
 }

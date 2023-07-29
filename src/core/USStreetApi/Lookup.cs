@@ -1,11 +1,11 @@
-﻿using System.Runtime.Serialization;
-using Refit;
+﻿using Refit;
 using Smarty.Net.Core.Shared;
+using System.Runtime.Serialization;
 
 namespace Smarty.Net.Core.USStreetApi;
 
 public class Lookup : ILookup
-{   
+{
     [AliasAs("input_id")]
     public string? InputId { get; set; }
 

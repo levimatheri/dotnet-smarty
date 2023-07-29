@@ -4,26 +4,26 @@ using Smarty.Net.Core.USStreetApi;
 
 namespace integration;
 
-public class USStreetsApi : ISmartyApi
+public class USStreetApi : ISmartyApi
 {
     private readonly HttpClient _httpClient;
     private readonly IUSStreetClient _usStreetsClient;
-    private readonly ILogger<USStreetsApi> _logger;
+    private readonly ILogger<USStreetApi> _logger;
 
-    public USStreetsApi(ILogger<USStreetsApi> logger, IHttpClientFactory httpClientFactory)
+    public USStreetApi(ILogger<USStreetApi> logger, IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClientFactory.CreateClient("StreetsApi");
+        _httpClient = httpClientFactory.CreateClient("StreetApi");
         _usStreetsClient = RestService.For<IUSStreetClient>(_httpClient);
         _logger = logger;
     }
 
-    private Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup)
-        => _usStreetsClient.GetCandidatesAsync(lookup);
+    private Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup, CancellationToken cancellationToken)
+        => _usStreetsClient.GetCandidatesAsync(lookup, cancellationToken);
 
-    private Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync(Batch batch)
-        => _usStreetsClient.GetCandidatesBatchAsync(batch);
+    private Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync(Batch batch, CancellationToken cancellationToken)
+        => _usStreetsClient.GetCandidatesBatchAsync(batch, cancellationToken);
 
-    public async Task RunAsync()
+    public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         _logger.LogInformation($"Running {nameof(GetCandidatesAsync)}");
 
@@ -35,7 +35,7 @@ public class USStreetsApi : ISmartyApi
             MaxCandidates = 10
         };
 
-        await GetCandidatesAsync(lookup);
+        await GetCandidatesAsync(lookup, cancellationToken);
 
         _logger.LogInformation($"Finished running {nameof(GetCandidatesAsync)}");
 
@@ -59,7 +59,7 @@ public class USStreetsApi : ISmartyApi
             }
         };
 
-        await GetCandidatesBatchAsync(batch);
+        await GetCandidatesBatchAsync(batch, cancellationToken);
 
         _logger.LogInformation($"Finished running {nameof(GetCandidatesBatchAsync)}");
     }

@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace Smarty.Net.Core.USReverseGeoApi
+﻿namespace Smarty.Net.Core.USReverseGeoApi
 {
-	using System.Runtime.Serialization;
+    using System.Runtime.Serialization;
     using System.Text.Json.Serialization;
 
     [DataContract]
-	public class SmartyResponse
-	{
-		[JsonPropertyName("results")]
-		public List<Result> Results { get; set; }
-	}
+    public class SmartyResponse
+    {
+        [JsonPropertyName("results")]
+        public List<Result> Results { get; set; }
+    }
 }

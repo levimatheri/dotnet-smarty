@@ -1,6 +1,6 @@
 ﻿namespace Smarty.Net.Core.USReverseGeoApi
 {
-	using System.Runtime.Serialization;
+    using System.Runtime.Serialization;
     using System.Text.Json.Serialization;
 
     /// <summary>
@@ -9,15 +9,15 @@
     /// </summary>
     /// <remarks>See "https://smartystreets.com/docs/cloud/us-reverse-geo-api#result"</remarks>
     [DataContract]
-	public class Result
-	{
-		[JsonPropertyName("coordinate")]
-		public Coordinate Coordinate { get; set; }
-		
-		[JsonPropertyName("distance")]
-		public double Distance { get; set; }
-		
-		[JsonPropertyName("address")]
-		public Address Address { get; set; }
-	}
+    public class Result
+    {
+        [JsonPropertyName("coordinate")]
+        public Coordinate Coordinate { get; set; }
+
+        [JsonPropertyName("distance")]
+        public double Distance { get; set; }
+
+        [JsonPropertyName("address")]
+        public Address Address { get; set; }
+    }
 }

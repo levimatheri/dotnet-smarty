@@ -47,7 +47,7 @@ public class AuthParamsHandler : DelegatingHandler
                 existingParams[paramVals[0]] = paramVals[1];
             }
         }
-                
+
         existingParams["auth-id"] = AuthId;
         existingParams["auth-token"] = AuthToken;
 

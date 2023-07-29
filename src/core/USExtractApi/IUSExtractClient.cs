@@ -1,5 +1,4 @@
 using Refit;
-using Smarty.Net.Core.USReverseGeoApi;
 
 namespace Smarty.Net.Core.USExtractApi;
 

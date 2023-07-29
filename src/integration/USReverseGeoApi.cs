@@ -20,7 +20,7 @@ public class USReverseGeoApi : ISmartyApi
     private Task<SmartyResponse> LookupAsync(Lookup lookup)
         => _usReverseGeoClient.LookupAsync(lookup);
 
-    public async Task RunAsync()
+    public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         _logger.LogInformation($"Running {nameof(LookupAsync)}");
 

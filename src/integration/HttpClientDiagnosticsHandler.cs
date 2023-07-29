@@ -1,18 +1,11 @@
-﻿using System.Diagnostics;
-using Microsoft.Extensions.Logging;
-using Serilog;
+﻿using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace integration;
 
 public class HttpClientDiagnosticsHandler : DelegatingHandler
 {
     private readonly ILogger<HttpClientDiagnosticsHandler> _logger;
-
-    // public HttpClientDiagnosticsHandler(HttpMessageHandler innerHandler, ILogger<HttpClientDiagnosticsHandler> logger)
-    //          : base(innerHandler)
-    // {
-    //     _logger = logger;
-    // }
 
     public HttpClientDiagnosticsHandler(ILogger<HttpClientDiagnosticsHandler> logger)
     {

@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using Smarty.Net.Core.Shared.Exceptions;
+﻿using Smarty.Net.Core.Shared.Exceptions;
+using System.Collections;
 
 namespace Smarty.Net.Core.Shared;
 

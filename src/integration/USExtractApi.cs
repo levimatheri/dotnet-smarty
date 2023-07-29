@@ -20,7 +20,7 @@ public class USExtractApi : ISmartyApi
     private Task<Result> ExtractAsync(string text, Lookup lookup)
         => _usExtractClient.ExtractAsync(text, lookup);
 
-    public async Task RunAsync()
+    public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         _logger.LogInformation($"Running {nameof(ExtractAsync)}");
 

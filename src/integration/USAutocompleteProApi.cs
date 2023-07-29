@@ -19,7 +19,7 @@ public class USAutocompleteProApi : ISmartyApi
     private Task<Result> LookupAsync(Lookup lookup)
         => _usAutocompleteProClient.LookupAsync(lookup);
 
-    public async Task RunAsync()
+    public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         _logger.LogInformation($"Running {nameof(USAutocompleteProApi)}");
 

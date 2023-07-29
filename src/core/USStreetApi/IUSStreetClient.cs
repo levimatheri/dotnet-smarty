@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using Refit;
-using Smarty.Net.Core.Shared;
+﻿using Refit;
 
 namespace Smarty.Net.Core.USStreetApi;
 
 public interface IUSStreetClient
 {
     [Get("/street-address")]
-    Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup);
+    Task<IReadOnlyList<Candidate>> GetCandidatesAsync(Lookup lookup, CancellationToken cancellationToken = default);
 
     [Post("/street-address")]
-    Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync([Body]Batch lookup);
+    Task<IReadOnlyList<Candidate>> GetCandidatesBatchAsync([Body] Batch lookup, CancellationToken cancellationToken = default);
 }

@@ -1,11 +1,11 @@
 ﻿namespace SmartyStreets.USAutocompleteProApi
 {
-	using System.Runtime.Serialization;
+    using System.Runtime.Serialization;
 
-	[DataContract]
-	public class Result
-	{
-		[DataMember(Name = "suggestions")]
-		public Suggestion[] Suggestions { get; set; }
-	}
+    [DataContract]
+    public class Result
+    {
+        [DataMember(Name = "suggestions")]
+        public Suggestion[] Suggestions { get; set; }
+    }
 }
