@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Refit;
-using Smarty.Net.Core.USReverseGeoApi;
+using Smarty.Net.Core.Apis.USReverseGeoApi;
 
 namespace integration;
 

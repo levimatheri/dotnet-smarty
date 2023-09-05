@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Refit;
-using Smarty.Net.Core.USExtractApi;
+using Smarty.Net.Core.Apis.USExtractApi;
 
 namespace integration;
 

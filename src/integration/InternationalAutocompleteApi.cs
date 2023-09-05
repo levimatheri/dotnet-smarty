@@ -1,19 +1,19 @@
 ﻿using Microsoft.Extensions.Logging;
 using Refit;
-using Smarty.Net.Core.InternationalAutocompleteApi;
-using Lookup = Smarty.Net.Core.InternationalAutocompleteApi.Lookup;
+using Smarty.Net.Core.Apis.InternationalAutocompleteApi;
+using Lookup = Smarty.Net.Core.Apis.InternationalAutocompleteApi.Lookup;
 
 namespace integration;
 public class InternationalAutocompleteApi : ISmartyApi
 {
     private readonly HttpClient _httpClient;
-    private readonly IInternationalAutoCompleteClient _internationalAutocompleteClient;
+    private readonly IInternationalAutocompleteClient _internationalAutocompleteClient;
     private readonly ILogger<InternationalAutocompleteApi> _logger;
 
     public InternationalAutocompleteApi(ILogger<InternationalAutocompleteApi> logger, IHttpClientFactory httpClientFactory)
     {
         _httpClient = httpClientFactory.CreateClient("InternationalAutocompleteApi");
-        _internationalAutocompleteClient = RestService.For<IInternationalAutoCompleteClient>(_httpClient);
+        _internationalAutocompleteClient = RestService.For<IInternationalAutocompleteClient>(_httpClient);
         _logger = logger;
     }
 

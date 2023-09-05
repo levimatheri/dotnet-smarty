@@ -1,7 +1,6 @@
-﻿using core;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Refit;
-using Smarty.Net.Core.USZipCodeApi;
+using Smarty.Net.Core.Apis.USZipCodeApi;
 
 namespace integration;
 
@@ -25,7 +24,7 @@ public class USZipCodeApi : ISmartyApi
     public async Task RunAsync(CancellationToken cancellationToken = default)
     {
         _logger.LogInformation($"Running {nameof(GetResultsAsync)}");
-        var lookup = new Smarty.Net.Core.USZipCodeApi.Lookup
+        var lookup = new Smarty.Net.Core.Apis.USZipCodeApi.Lookup
         {
             ZipCode = "44721"
         };

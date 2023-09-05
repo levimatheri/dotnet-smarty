@@ -1,19 +1,16 @@
 ﻿using Microsoft.Extensions.Logging;
-using Refit;
-using Smarty.Net.Core.USStreetApi;
+using Smarty.Net.Core.Apis.USStreetApi;
 
 namespace integration;
 
 public class USStreetApi : ISmartyApi
 {
-    private readonly HttpClient _httpClient;
     private readonly IUSStreetClient _usStreetsClient;
     private readonly ILogger<USStreetApi> _logger;
 
-    public USStreetApi(ILogger<USStreetApi> logger, IHttpClientFactory httpClientFactory)
+    public USStreetApi(ILogger<USStreetApi> logger, IUSStreetClient usStreetClient)
     {
-        _httpClient = httpClientFactory.CreateClient("StreetApi");
-        _usStreetsClient = RestService.For<IUSStreetClient>(_httpClient);
+        _usStreetsClient = usStreetClient;
         _logger = logger;
     }
 

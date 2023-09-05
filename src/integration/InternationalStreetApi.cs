@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Refit;
-using Smarty.Net.Core.InternationalStreetApi;
-using Candidate = Smarty.Net.Core.InternationalStreetApi.Candidate;
-using Lookup = Smarty.Net.Core.InternationalStreetApi.Lookup;
+using Smarty.Net.Core.Apis.InternationalStreetApi;
+using Candidate = Smarty.Net.Core.Apis.InternationalStreetApi.Candidate;
+using Lookup = Smarty.Net.Core.Apis.InternationalStreetApi.Lookup;
 
 namespace integration;
 public class InternationalStreetApi : ISmartyApi
