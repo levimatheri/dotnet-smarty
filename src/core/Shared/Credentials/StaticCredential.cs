@@ -1,4 +1,4 @@
-﻿namespace Smarty.Net.Core.Shared;
+﻿namespace Smarty.Net.Core.Shared.Credentials;
 public class StaticCredential : ICredential
 {
     public string AuthId { get; }

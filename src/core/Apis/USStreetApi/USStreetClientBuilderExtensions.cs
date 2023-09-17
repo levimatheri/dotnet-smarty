@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Smarty.Net.Core.Shared;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Apis.USStreetApi;
 
@@ -46,7 +47,7 @@ public static class USStreetClientBuilderExtensions
     }
 
     /// <summary>
-    /// Registers a <see cref="IUSStreetClient"/> instance with the provided <paramref name="endpoint"/>
+    /// Registers a <see cref="IUSStreetClient"/> instance with the provided <paramref name="endpoint"/>.
     /// </summary>
     public static ISmartyClientBuilder<IUSStreetClient, USStreetClientOptions> AddUSStreetClient<TBuilder>(
         this TBuilder builder, string authId, string authToken)

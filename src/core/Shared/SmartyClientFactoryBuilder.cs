@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Refit;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Shared;
 public sealed class SmartyClientFactoryBuilder : ISmartyClientFactoryBuilder
@@ -90,7 +91,7 @@ public sealed class SmartyClientFactoryBuilder : ISmartyClientFactoryBuilder
         _serviceCollection.TryAddSingleton(typeof(ClientOptionsFactory<TClient, TOptions>), typeof(ClientOptionsFactory<TClient, TOptions>));
         _serviceCollection.TryAddSingleton(typeof(ISmartyClientFactory<TClient>), typeof(SmartyClientFactory<TClient, TOptions>));
         _serviceCollection.AddTransient<ICredential, StaticCredential>();
-        _serviceCollection.AddTransient(typeof(CredentialHandler<StaticCredential>), typeof(StaticCredentialsHandler));
+        _serviceCollection.AddTransient(typeof(CredentialHandler<StaticCredential>), typeof(StaticCredentialHandler));
         //_serviceCollection.AddSingleton(
         //    typeof(TClient),
         //    provider => provider.GetService<ISmartyClientFactory<TClient>>()

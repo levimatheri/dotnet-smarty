@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Shared;
 internal class SmartyClientsGlobalOptions

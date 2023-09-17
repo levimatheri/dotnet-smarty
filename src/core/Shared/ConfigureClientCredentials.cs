@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Shared;
 internal class ConfigureClientCredentials<TClient, TOptions> : IConfigureNamedOptions<SmartyClientCredentialOptions<TClient>>

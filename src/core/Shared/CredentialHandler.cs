@@ -1,4 +1,7 @@
-﻿namespace Smarty.Net.Core.Shared;
+﻿
+using Smarty.Net.Core.Shared.Credentials;
+
+namespace Smarty.Net.Core.Shared;
 
 internal abstract class CredentialHandler<TCredential> : DelegatingHandler
     where TCredential : ICredential

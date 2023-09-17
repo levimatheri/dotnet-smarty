@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Smarty.Net.Core.Shared;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Apis.InternationalAutocompleteApi;
 

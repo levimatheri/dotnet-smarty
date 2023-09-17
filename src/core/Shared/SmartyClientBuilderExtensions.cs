@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Smarty.Net.Core.Shared.Credentials;
 
 namespace Smarty.Net.Core.Shared;
 public static class SmartyClientBuilderExtensions
